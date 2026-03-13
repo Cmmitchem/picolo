@@ -3,6 +3,8 @@ import { CardCategory, CardTemplate, Round } from "@/types/game";
 /**
  * Static card deck — 70 cards split across 3 rounds.
  *
+ * Tone: funny, bizarre, rated R humor, over the top, out of pocket — NOT sexual.
+ *
  * Placeholders:
  *   {player1}, {player2}, {player3} — replaced with real player names at runtime.
  *   playerCount: 0 — card addresses everyone, no substitution needed.
@@ -21,7 +23,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-truth-01",
     template:
-      "{player1}, what's your body count? Answer honestly or drink 3. The group decides if they believe you.",
+      "{player1}, what's the most unhinged Google search you've made this week? Say it out loud or drink 2.",
     category: CardCategory.Truth,
     round: Round.HeatingUp,
     playerCount: 1,
@@ -29,7 +31,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-truth-02",
     template:
-      "{player1}, describe your most embarrassing hookup in three words. Refuse and drink 2.",
+      "{player1}, what's the longest you've gone without showering and what was the occasion? Answer or drink 2.",
     category: CardCategory.Truth,
     round: Round.HeatingUp,
     playerCount: 1,
@@ -37,7 +39,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-truth-03",
     template:
-      "{player1}, have you ever hooked up with someone in this room or wanted to? Answer or drink 3.",
+      "{player1}, what's the worst thing you've ever eaten to be polite? Describe the taste or drink 2.",
     category: CardCategory.Truth,
     round: Round.HeatingUp,
     playerCount: 1,
@@ -45,7 +47,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-truth-04",
     template:
-      "{player1}, what's the sketchiest place you've ever had sex? Tell the group or drink 2.",
+      "{player1}, what's the most embarrassing thing you've cried about? If the group laughs, they all drink 1.",
     category: CardCategory.Truth,
     round: Round.HeatingUp,
     playerCount: 1,
@@ -53,7 +55,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-truth-05",
     template:
-      "{player1}, have you ever slid into someone's DMs specifically to hook up? If yes, drink 2 and say if it worked.",
+      "{player1}, what's the dumbest injury you've ever gotten? Act out how it happened or drink 3.",
     category: CardCategory.Truth,
     round: Round.HeatingUp,
     playerCount: 1,
@@ -63,7 +65,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-confess-01",
     template:
-      "{player1}, show the group the last flirty or dirty text you sent. No deleting first. Refuse = drink 3.",
+      "{player1}, confess the most embarrassing thing saved in your phone's notes app. Show proof or drink 3.",
     category: CardCategory.Confess,
     round: Round.HeatingUp,
     playerCount: 1,
@@ -71,15 +73,15 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-confess-02",
     template:
-      "{player1}, confess the most embarrassing thing you've done while drunk. If the group already knows the story, drink 2.",
+      "{player1}, confess the pettiest thing you've ever done to someone. If {player2} thinks it's weak, you drink 2.",
     category: CardCategory.Confess,
     round: Round.HeatingUp,
-    playerCount: 1,
+    playerCount: 2,
   },
   {
     id: "w-confess-03",
     template:
-      "{player1}, admit who in this room you stalked on social media before meeting them in person. Deny it = drink 3.",
+      "{player1}, confess a lie you've told someone in this room. If they didn't know about it, drink 2.",
     category: CardCategory.Confess,
     round: Round.HeatingUp,
     playerCount: 1,
@@ -87,7 +89,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-confess-04",
     template:
-      "{player1}, confess the thirstiest DM you've ever sent. Read it out loud or drink 4.",
+      "{player1}, show your screen time report right now. Confess what app you're most ashamed of. Refuse = drink 3.",
     category: CardCategory.Confess,
     round: Round.HeatingUp,
     playerCount: 1,
@@ -97,33 +99,33 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-challenge-01",
     template:
-      "Everyone names a sex position. First person who repeats one or blanks out drinks 2. {player1} starts.",
-    category: CardCategory.Challenge,
-    round: Round.HeatingUp,
-    playerCount: 1,
-  },
-  {
-    id: "w-challenge-02",
-    template:
-      "{player1} and {player2}: who can describe their type in the most hilariously specific way? Group votes — loser drinks 2.",
+      "{player1} and {player2}: you have 30 seconds each to do your best impression of the other person. Group votes who nailed it — loser drinks 2.",
     category: CardCategory.Challenge,
     round: Round.HeatingUp,
     playerCount: 2,
   },
   {
-    id: "w-challenge-03",
+    id: "w-challenge-02",
     template:
-      "Most convincing moan wins. Everyone participates — group picks a winner who gives out 3 drinks.",
+      "Everyone names a cartoon character. {player1} has to do an impression of each one. Group rates each attempt — below a 5 means drink 1.",
     category: CardCategory.Challenge,
     round: Round.HeatingUp,
-    playerCount: 0,
+    playerCount: 1,
+  },
+  {
+    id: "w-challenge-03",
+    template:
+      "{player1} vs {player2}: who can keep a straight face longer while the group tries to make them laugh? Loser drinks 3.",
+    category: CardCategory.Challenge,
+    round: Round.HeatingUp,
+    playerCount: 2,
   },
 
   // Group × 4
   {
     id: "w-group-01",
     template:
-      "Everyone who has had a one-night stand, drink 1. If it was someone you'd already met before, drink 2.",
+      "Everyone who has pretended to be on a phone call to avoid talking to someone — drink 1. If you've done it to avoid someone in this room, drink 2.",
     category: CardCategory.Group,
     round: Round.HeatingUp,
     playerCount: 0,
@@ -131,7 +133,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-group-02",
     template:
-      "Everyone who has sent a nude, drink 1. If you've sent one to someone in this room, finish your drink.",
+      "Drink 1 if you've ever ugly cried in public. Drink 2 if a stranger tried to comfort you.",
     category: CardCategory.Group,
     round: Round.HeatingUp,
     playerCount: 0,
@@ -139,7 +141,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-group-03",
     template:
-      "Drink 1 if you've ever faked it. Drink 2 if you've faked it more than once with the same person.",
+      "Everyone who has a screen time over 6 hours a day — drink 2 and accept your digital addiction.",
     category: CardCategory.Group,
     round: Round.HeatingUp,
     playerCount: 0,
@@ -147,7 +149,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-group-04",
     template:
-      "Everyone who has hooked up with someone at least 10 years older or younger than them — drink 2 and own it.",
+      "Drink 1 if you've ever waved back at someone who wasn't waving at you. Drink 2 if you tried to play it off and made it worse.",
     category: CardCategory.Group,
     round: Round.HeatingUp,
     playerCount: 0,
@@ -157,7 +159,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-vote-01",
     template:
-      "Vote: who in this group is the biggest flirt? That person has to hit on the person to their left — right now.",
+      "Vote: who would survive the shortest amount of time in a zombie apocalypse? That person drinks 2 and must explain their survival strategy.",
     category: CardCategory.Vote,
     round: Round.HeatingUp,
     playerCount: 0,
@@ -165,7 +167,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-vote-02",
     template:
-      "Vote: who is most likely to have a secret situationship? That person drinks 2 and does not confirm or deny.",
+      "Vote: who has the most chaotic energy in this group? That person assigns 3 drinks however they want.",
     category: CardCategory.Vote,
     round: Round.HeatingUp,
     playerCount: 0,
@@ -173,7 +175,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-vote-03",
     template:
-      "Vote: who would be the most adventurous in bed? That person assigns 3 drinks however they want.",
+      "Vote: who is most likely to end up on a reality TV show? That person drinks 2 and pitches their show concept.",
     category: CardCategory.Vote,
     round: Round.HeatingUp,
     playerCount: 0,
@@ -183,7 +185,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-rule-01",
     template:
-      "New rule: nobody can say 'no' for the next 3 cards. Every refusal costs 2 drinks.",
+      "New rule: nobody can use anyone's real name for the next 3 cards. You must use a ridiculous nickname. Mess up = drink 1.",
     category: CardCategory.Rule,
     round: Round.HeatingUp,
     playerCount: 0,
@@ -191,7 +193,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "w-rule-02",
     template:
-      "New rule: {player1} is now the 'Thirst Trap Judge' — they rate every confession's spiciness until the next rule card. Their word is final.",
+      "New rule: {player1} is now the 'Vibe Check Officer.' They can call 'vibe check' once per card and force anyone to justify what they're doing. Failing the vibe check = drink 2.",
     category: CardCategory.Rule,
     round: Round.HeatingUp,
     playerCount: 1,
@@ -205,7 +207,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-truth-01",
     template:
-      "{player1}, rate everyone in the room on physical attractiveness, 1–10, out loud. Refuse = drink 5.",
+      "{player1}, what's the most unhinged thing you've done because you were too stubborn to admit you were wrong? Full story or drink 4.",
     category: CardCategory.Truth,
     round: Round.Crazy,
     playerCount: 1,
@@ -213,23 +215,23 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-truth-02",
     template:
-      "{player1}, have you ever thought about someone in this room in a sexual way? Drink 1 for yes, but if you say no, {player2} decides if they believe you.",
-    category: CardCategory.Truth,
-    round: Round.Crazy,
-    playerCount: 2,
-  },
-  {
-    id: "h-truth-03",
-    template:
-      "{player1}, what is the wildest sexual thing you've done that you've never told anyone? Full story or finish your drink.",
+      "{player1}, read the last 5 things you searched on your phone out loud. No deleting. Refuse = drink 4.",
     category: CardCategory.Truth,
     round: Round.Crazy,
     playerCount: 1,
   },
   {
+    id: "h-truth-03",
+    template:
+      "{player1}, what's the worst financial decision you've ever made? If {player2} has done something dumber, they drink instead.",
+    category: CardCategory.Truth,
+    round: Round.Crazy,
+    playerCount: 2,
+  },
+  {
     id: "h-truth-04",
     template:
-      "{player1}, read your most recent browser history item out loud. If it's embarrassing, drink 3. If it's absolutely filthy, everyone else drinks too.",
+      "{player1}, what conspiracy theory do you lowkey believe? If the group roasts you for it, drink 3. If someone agrees with you, they drink 2.",
     category: CardCategory.Truth,
     round: Round.Crazy,
     playerCount: 1,
@@ -237,7 +239,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-truth-05",
     template:
-      "{player1}, what's the most desperate thing you've ever done to get someone's attention romantically or sexually? Tell it or drink 4.",
+      "{player1}, tell us about a time you were so wrong it was actually dangerous. If the group is horrified, everyone drinks 1 out of solidarity.",
     category: CardCategory.Truth,
     round: Round.Crazy,
     playerCount: 1,
@@ -255,7 +257,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-confess-02",
     template:
-      "{player1}, confess the worst lie you've told to get someone into bed. Full story or finish your drink.",
+      "{player1}, confess the most unhinged thing you've done alone that would ruin your reputation if anyone saw. Full story or drink 4.",
     category: CardCategory.Confess,
     round: Round.Crazy,
     playerCount: 1,
@@ -263,7 +265,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-confess-03",
     template:
-      "{player1}, show the group your screen time report right now. Confess what app you're most ashamed of. Refuse = drink 4.",
+      "{player1}, confess a secret you've been keeping from someone in this room. They get to assign your drink penalty — up to 5.",
     category: CardCategory.Confess,
     round: Round.Crazy,
     playerCount: 1,
@@ -271,15 +273,15 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-confess-04",
     template:
-      "{player1}, admit the most unhinged thing in your search history this week. Show proof or the group doesn't believe you — drink 3 either way.",
+      "{player1}, show the group the most embarrassing photo on your phone. {player2} picks which album you open. Refuse = finish your drink.",
     category: CardCategory.Confess,
     round: Round.Crazy,
-    playerCount: 1,
+    playerCount: 2,
   },
   {
     id: "h-confess-05",
     template:
-      "{player1}, confess who you've hate-followed or obsessively stalked online. {player2} gets to check your phone to verify. Refuse = finish your drink.",
+      "{player1}, confess who you've hate-followed or obsessively stalked online. {player2} gets to check your phone to verify. Refuse = drink 4.",
     category: CardCategory.Confess,
     round: Round.Crazy,
     playerCount: 2,
@@ -289,7 +291,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-challenge-01",
     template:
-      "{player1} vs {player2}: who can dirty talk in the most ridiculous fake accent for 20 seconds? Group votes — loser drinks 3.",
+      "{player1} vs {player2}: roast battle. 30 seconds each, no pausing. Group votes — loser finishes their drink.",
     category: CardCategory.Challenge,
     round: Round.Crazy,
     playerCount: 2,
@@ -297,7 +299,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-challenge-02",
     template:
-      "Everyone names a euphemism for sex. First person to repeat or blank out drinks 3. {player1} starts.",
+      "Everyone names a bizarre law from any country. First person to repeat one, make one up, or blank out drinks 3. {player1} starts.",
     category: CardCategory.Challenge,
     round: Round.Crazy,
     playerCount: 1,
@@ -305,25 +307,25 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-challenge-03",
     template:
-      "{player1} and {player2}: staring contest while everyone else says increasingly distracting things. First to break finishes their drink.",
+      "{player1} has 60 seconds to sell a completely useless product to the group using an infomercial voice. If they break character, drink 3. If someone laughs, that person drinks 1.",
     category: CardCategory.Challenge,
     round: Round.Crazy,
-    playerCount: 2,
+    playerCount: 1,
   },
   {
     id: "h-challenge-04",
     template:
-      "{player1} has 60 seconds to get anyone in the room to blush using only words. If they succeed, the blusher drinks 2. If they fail, {player1} drinks 3.",
+      "{player1} and {player2}: staring contest while everyone else does everything they can to distract you. First to break finishes their drink.",
     category: CardCategory.Challenge,
     round: Round.Crazy,
-    playerCount: 1,
+    playerCount: 2,
   },
 
   // Group × 4
   {
     id: "h-group-01",
     template:
-      "Everyone who has sexted someone in the last week, drink 2. If the person you sexted is in this room, finish your drink.",
+      "Everyone who has creeped on someone's social media so deep they accidentally liked a post from 3+ years ago — drink 2.",
     category: CardCategory.Group,
     round: Round.Crazy,
     playerCount: 0,
@@ -331,7 +333,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-group-02",
     template:
-      "Drink 1 if you've ever hooked up with a friend's ex. Drink 3 if they found out.",
+      "Drink 1 if you've ever lied on your resume. Drink 3 if you're currently living that lie.",
     category: CardCategory.Group,
     round: Round.Crazy,
     playerCount: 0,
@@ -339,7 +341,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-group-03",
     template:
-      "Everyone who has a friends-with-benefits situation right now — drink 2 and say how complicated it is on a scale of 1–10.",
+      "Everyone who has ghosted someone and then run into them in public — drink 2. If you pretended not to see them, drink 3.",
     category: CardCategory.Group,
     round: Round.Crazy,
     playerCount: 0,
@@ -347,7 +349,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-group-04",
     template:
-      "Everyone who has been caught in the act — drink 3. If the story is legendary, you owe the group the full details.",
+      "Drink 2 if you've ever started a fight over something incredibly stupid. Drink 3 if you lost that fight.",
     category: CardCategory.Group,
     round: Round.Crazy,
     playerCount: 0,
@@ -357,7 +359,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-vote-01",
     template:
-      "Vote: who in this group has the highest body count? That person must either confirm or deny — then drink 3.",
+      "Vote: who would be the absolute worst roommate? That person drinks 3 and must defend their living habits.",
     category: CardCategory.Vote,
     round: Round.Crazy,
     playerCount: 0,
@@ -365,7 +367,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-vote-02",
     template:
-      "Vote: who is most likely to have a secret kink nobody knows about? That person drinks 3 and is NOT allowed to explain themselves.",
+      "Vote: who is most likely to start a cult? That person drinks 3 and must pitch their cult's philosophy to the group.",
     category: CardCategory.Vote,
     round: Round.Crazy,
     playerCount: 0,
@@ -373,7 +375,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-vote-03",
     template:
-      "Vote: who would last the longest in a no-sex challenge? The winner assigns 4 drinks. Everyone suspects the winner is lying.",
+      "Vote: who tells the most exaggerated stories? That person must retell their most famous story and the group decides what actually happened. They drink for every lie caught.",
     category: CardCategory.Vote,
     round: Round.Crazy,
     playerCount: 0,
@@ -383,7 +385,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-rule-01",
     template:
-      "New rule: {player1} must speak exclusively in innuendo until the next rule card. Everything they say must sound dirty. Violations = 1 drink each.",
+      "New rule: {player1} must narrate everything they do in a nature documentary voice until the next rule card. Violations = 2 drinks.",
     category: CardCategory.Rule,
     round: Round.Crazy,
     playerCount: 1,
@@ -391,18 +393,18 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "h-rule-02",
     template:
-      "New rule: no crossing your legs or arms for the rest of this round. Open body language only. Violations = 1 drink.",
+      "New rule: before anyone drinks, they must make aggressive eye contact with {player1} and say 'this one's for you.' Forgetting = 1 extra drink.",
     category: CardCategory.Rule,
     round: Round.Crazy,
-    playerCount: 0,
+    playerCount: 1,
   },
   {
     id: "h-rule-03",
     template:
-      "New rule: {player1} must give a compliment about someone's appearance before every card flip for the next 4 cards. Skip = drink 2.",
+      "New rule: no one can say 'like' as a filler word for the rest of this round. Everyone polices each other. Violations = 1 drink per 'like.'",
     category: CardCategory.Rule,
     round: Round.Crazy,
-    playerCount: 1,
+    playerCount: 0,
   },
 
   // ─────────────────────────────────────────────
@@ -413,7 +415,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-truth-01",
     template:
-      "{player1}, describe your absolute worst sexual experience in vivid detail. The group decides when you've given enough — or you finish your drink.",
+      "{player1}, what is the most deranged intrusive thought you've ever had in a completely normal situation? Be specific or finish your drink.",
     category: CardCategory.Truth,
     round: Round.WelcomeToHell,
     playerCount: 1,
@@ -421,7 +423,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-truth-02",
     template:
-      "{player1}, who in this room would you sleep with if you had to? You must pick someone — saying nobody means you finish your drink AND someone else picks for you.",
+      "{player1}, rank everyone in this room by who you'd trust least with your unlocked phone. Explain your rankings or finish your drink.",
     category: CardCategory.Truth,
     round: Round.WelcomeToHell,
     playerCount: 1,
@@ -429,7 +431,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-truth-03",
     template:
-      "{player1}, confess the most unhinged thing you've done to stalk an ex or crush online. Full receipts or finish your drink.",
+      "{player1}, what's the most delusional thing you genuinely believe about yourself? The group rates how delusional it is — drink 1 per point above 5.",
     category: CardCategory.Truth,
     round: Round.WelcomeToHell,
     playerCount: 1,
@@ -437,7 +439,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-truth-04",
     template:
-      "{player1} and {player2}, rank each other's attractiveness and then explain what they could do to improve it. Both must speak — silence costs 4 drinks each.",
+      "{player1} and {player2}, each say the most brutally honest thing you think about the other's life choices. Both must speak — silence costs 4 drinks.",
     category: CardCategory.Truth,
     round: Round.WelcomeToHell,
     playerCount: 2,
@@ -445,7 +447,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-truth-05",
     template:
-      "{player1}, what is a sexual fantasy you've never told anyone? Say it out loud or finish your drink. The group decides if it's spicy enough.",
+      "{player1}, what's the worst thing you've ever done and gotten away with? If the group is genuinely shocked, they all drink 1. If not, you finish yours.",
     category: CardCategory.Truth,
     round: Round.WelcomeToHell,
     playerCount: 1,
@@ -455,7 +457,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-confess-01",
     template:
-      "{player1}, confess the most depraved thing you've ever done that nobody in this room knows about. Group rates it 1–10 on the unhinged scale. Below 7 = finish your drink for being boring.",
+      "{player1}, confess the most unhinged thing you've done that nobody in this room knows about. Group rates it 1–10 on the chaos scale. Below 7 = finish your drink for being boring.",
     category: CardCategory.Confess,
     round: Round.WelcomeToHell,
     playerCount: 1,
@@ -471,7 +473,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-confess-03",
     template:
-      "{player1}, confess your most shameful hookup — the one you swore you'd take to the grave. Full details or finish your drink and everyone roasts you anyway.",
+      "{player1}, confess the worst thing you've said behind someone's back who is NOT in this room. If anyone here knows who you're talking about, you finish your drink.",
     category: CardCategory.Confess,
     round: Round.WelcomeToHell,
     playerCount: 1,
@@ -479,7 +481,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-confess-04",
     template:
-      "{player1} and {player2}, each confess the worst thing you've thought about the other. Say it to their face. Whoever chickens out finishes their drink.",
+      "{player1} and {player2}, each confess what you actually thought the first time you met the other. Say it to their face. Whoever chickens out finishes their drink.",
     category: CardCategory.Confess,
     round: Round.WelcomeToHell,
     playerCount: 2,
@@ -487,25 +489,25 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-confess-05",
     template:
-      "{player1}, show the group your most explicit text conversation. You pick the person — but {player2} picks how far back you scroll. Refuse = finish your drink.",
+      "{player1}, confess something you did that would get you cancelled on the internet. If the group thinks it's actually that bad, everyone drinks in horror.",
     category: CardCategory.Confess,
     round: Round.WelcomeToHell,
-    playerCount: 2,
+    playerCount: 1,
   },
   {
     id: "c-confess-06",
     template:
-      "{player1}, confess something you did that would end a friendship if the wrong person found out. If the group thinks it's weak, you finish your drink AND confess again.",
+      "{player1}, confess the pettiest, most diabolical revenge you've ever gotten on someone. If {player2} thinks they can top it, they tell theirs — loser drinks 4.",
     category: CardCategory.Confess,
     round: Round.WelcomeToHell,
-    playerCount: 1,
+    playerCount: 2,
   },
 
   // Challenge × 4
   {
     id: "c-challenge-01",
     template:
-      "Final boss: everyone names something they'd never do in bed. First person to say something nobody believes — drinks 4. {player1} starts.",
+      "Final boss: everyone gives their hottest take that would get them cancelled. Group votes on the most unhinged one — that person gives out 5 drinks. {player1} starts.",
     category: CardCategory.Challenge,
     round: Round.WelcomeToHell,
     playerCount: 1,
@@ -513,7 +515,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-challenge-02",
     template:
-      "{player1} vs {player2}: two truths and a lie — all three have to be sexual or deeply embarrassing. Wrong guess = drink 4. Correct guess = the liar finishes their drink.",
+      "{player1} vs {player2}: two truths and a lie — all three must be absolutely absurd. Wrong guess = drink 4. Correct guess = the liar finishes their drink.",
     category: CardCategory.Challenge,
     round: Round.WelcomeToHell,
     playerCount: 2,
@@ -521,15 +523,15 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-challenge-03",
     template:
-      "Psychic horniness test: everyone secretly writes a number 1–10 rating how turned on they are right now. {player1} guesses the total. Within 5 = give out 6 drinks. Off by more = finish your drink.",
+      "{player1} must freestyle rap for 30 seconds about {player2}'s most embarrassing quality. If they stop or break rhythm, finish your drink. If it's actually fire, {player2} drinks instead.",
     category: CardCategory.Challenge,
     round: Round.WelcomeToHell,
-    playerCount: 1,
+    playerCount: 2,
   },
   {
     id: "c-challenge-04",
     template:
-      "{player1} has 60 seconds to convince the group that their worst sexual story was actually worth it. Group votes — if less than half are convinced, {player1} finishes their drink.",
+      "{player1} has 60 seconds to convince the group they could beat a bear in a fight. Group votes — if less than half believe you, finish your drink.",
     category: CardCategory.Challenge,
     round: Round.WelcomeToHell,
     playerCount: 1,
@@ -547,7 +549,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-group-02",
     template:
-      "Waterfall of shame: {player1} starts drinking. Everyone follows. You can only stop when the person ahead of you stops. {player1} decides when — and they have to say something embarrassing before they stop.",
+      "Waterfall of chaos: {player1} starts drinking. Everyone follows. You can only stop when the person before you stops. {player1} must tell an embarrassing story before they can stop.",
     category: CardCategory.Group,
     round: Round.WelcomeToHell,
     playerCount: 1,
@@ -555,7 +557,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-group-03",
     template:
-      "Everyone who has fantasized about someone in this room at any point — finish your drink. Don't lie. We all know.",
+      "Everyone must say the most out-of-pocket thought they've had today. Group votes on the most unhinged — winner gives out 4 drinks, everyone else drinks 1.",
     category: CardCategory.Group,
     round: Round.WelcomeToHell,
     playerCount: 0,
@@ -563,7 +565,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-group-04",
     template:
-      "Final toast to hell: everyone finishes their drink. {player1} must give a toast that includes at least one deeply personal confession. Ten seconds minimum.",
+      "Final toast: everyone finishes their drink. {player1} must give a toast roasting every single person in the group. Ten seconds per person minimum.",
     category: CardCategory.Group,
     round: Round.WelcomeToHell,
     playerCount: 1,
@@ -573,7 +575,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-vote-01",
     template:
-      "Vote: who had the most unhinged moment of the night? They get to make one rule that lasts until the game ends — and it must be uncomfortable for at least one person.",
+      "Vote: who had the most unhinged moment tonight? They get to create one rule for the rest of the game — and it must target someone specific.",
     category: CardCategory.Vote,
     round: Round.WelcomeToHell,
     playerCount: 0,
@@ -581,7 +583,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-vote-02",
     template:
-      "Vote: who is secretly the horniest person in the room right now? That person assigns 5 drinks — no splits, all to one person.",
+      "Vote: who would be the first to commit a crime if laws didn't exist for a day? That person explains what they'd do — drink 1 per person who's genuinely concerned.",
     category: CardCategory.Vote,
     round: Round.WelcomeToHell,
     playerCount: 0,
@@ -589,7 +591,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-vote-03",
     template:
-      "Vote: who needs to get laid most urgently? That person gets their drink topped up by everyone else and must say 'thank you, I needed this' before drinking.",
+      "Vote: who is the biggest menace to society in this group? That person gets their drink topped up by everyone else and must accept the title.",
     category: CardCategory.Vote,
     round: Round.WelcomeToHell,
     playerCount: 0,
@@ -599,7 +601,7 @@ export const cardTemplates: CardTemplate[] = [
   {
     id: "c-rule-01",
     template:
-      "New rule: {player1} is now the 'Hell Boss' — every time anyone takes a sip, they must ask {player1} for permission using a seductive voice. Breaking this costs 2 drinks.",
+      "New rule: {player1} is now the 'Hell Boss' — every time anyone drinks, they must make direct eye contact with {player1} and say 'I deserve this.' Breaking this costs 2 extra drinks.",
     category: CardCategory.Rule,
     round: Round.WelcomeToHell,
     playerCount: 1,

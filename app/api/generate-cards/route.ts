@@ -28,21 +28,21 @@ function roundContext(round: Round): string {
   switch (round) {
     case Round.HeatingUp:
       return (
-        "Round 1 — Heating Up. Spicy from the jump. Sexual innuendos, embarrassing hookup stories, " +
-        "body count questions, drunk confessions, and 'drink if you've ever...' prompts with sexual or embarrassing scenarios. " +
-        "Penalties of 1–3 sips. Get people loosened up and talking dirty fast."
+        "Round 1 — Heating Up. Funny, bizarre, and out of pocket. Embarrassing confessions, " +
+        "weird hypotheticals, dumb stories, petty admissions, and 'drink if you've ever...' prompts with absurd scenarios. " +
+        "Penalties of 1–3 sips. Get people laughing and loosened up."
       );
     case Round.Crazy:
       return (
-        "Round 2 — Crazy. Getting wild and explicit. Revealing phone content, rating each other's attractiveness, " +
-        "lap dances, body shots, revealing deep secrets, raunchy dares. " +
-        "Penalties of 3–5 sips. Push people way outside their comfort zone."
+        "Round 2 — Crazy. Getting wild and unhinged. Revealing phone content, roast battles, " +
+        "bizarre challenges, chaotic group activities, hot takes, and forced confessions. " +
+        "Penalties of 3–5 sips. Push people into absurd, hilarious situations."
       );
     case Round.WelcomeToHell:
       return (
-        "Round 3 — Welcome to Hell. Absolutely unhinged, crass, jaw-dropping prompts. " +
-        "The most outrageous and explicit content you can write. Nothing is off limits. " +
-        "Finish-your-drink penalties, extreme dares, brutally honest confessions, maximum chaos."
+        "Round 3 — Welcome to Hell. Absolutely unhinged, over-the-top, jaw-dropping prompts. " +
+        "Maximum chaos energy — brutal honesty, ridiculous challenges, diabolical rules, and out-of-pocket questions. " +
+        "Finish-your-drink penalties, freestyle roasts, deranged hot takes, total mayhem."
       );
   }
 }
@@ -51,22 +51,26 @@ function roundContext(round: Round): string {
 
 function buildSystemPrompt(players: string[], round: Round): string {
   const playerList = players.join(", ");
-  return `You are a raunchy, crass, no-holds-barred card writer for an adults-only drinking party game called Papa's Picolo.
+  return `You are a hilarious, unhinged, out-of-pocket card writer for an adults-only drinking party game called Papa's Picolo.
 
 PLAYERS IN THIS GAME: ${playerList}
 
 ROUND CONTEXT: ${roundContext(round)}
 
-YOUR TASK: Write filthy, outrageous drinking game prompt cards. Cards should be sexually charged, embarrassing, and create chaotic unforgettable party moments. This is an adults-only game — be explicit and unhinged.
+YOUR TASK: Write funny, bizarre, rated-R humor drinking game cards. Cards should be embarrassing, absurd, chaotic, and create unforgettable party moments. Think weird hypotheticals, brutal honesty, ridiculous challenges, and out-of-pocket confessions.
 
-IMPORTANT RULES:
+IMPORTANT — TONE RULES:
+- DO NOT make cards sexual. No hookup questions, no body count, no "who would you sleep with" type content.
+- Instead focus on: embarrassing stories, petty behavior, unhinged opinions, bizarre confessions, chaotic challenges, deranged hot takes, roasting each other, absurd hypotheticals, and general mayhem.
+- Be creative and weird — the humor comes from the absurdity, not from being dirty.
+
+IMPORTANT — FORMAT RULES:
 1. Use the actual player names directly in card text — do NOT use placeholder tokens like {player1}. Pick names randomly and vary who is targeted.
 2. Mix up which player(s) you target per card. Sometimes target one person, sometimes two, sometimes address the whole group ("everyone who...").
 3. For group/vote/rule cards, address everyone without singling out a specific player.
-4. Be sexually explicit, crass, and raunchy — this is the whole point. Do NOT water it down.
-5. Drinking penalties must be realistic — small amounts, never dangerously large.
-6. Cards should be concise: 1–3 sentences maximum.
-7. Vary the categories to keep the game interesting.
+4. Drinking penalties must be realistic — small amounts, never dangerously large.
+5. Cards should be concise: 1–3 sentences maximum.
+6. Vary the categories to keep the game interesting.
 
 CATEGORY DEFINITIONS:
 - truth: A question the player must answer honestly or drink
