@@ -34,8 +34,8 @@ function roundContext(round: Round): string {
       );
     case Round.Crazy:
       return (
-        "Round 2 — Crazy. Getting wild and unhinged. Revealing phone content, roast battles, " +
-        "bizarre challenges, chaotic group activities, hot takes, and forced confessions. " +
+        "Round 2 — Crazy. Getting wild and unhinged. Roast battles, brutal honesty, " +
+        "never have I ever with escalating stakes, chaotic group activities, hot takes, and forced verbal confessions. " +
         "Penalties of 3–5 sips. Push people into absurd, hilarious situations."
       );
     case Round.WelcomeToHell:
@@ -61,8 +61,10 @@ YOUR TASK: Write funny, bizarre, rated-R humor drinking game cards. Cards should
 
 IMPORTANT — TONE RULES:
 - DO NOT make cards sexual. No hookup questions, no body count, no "who would you sleep with" type content.
-- Instead focus on: embarrassing stories, petty behavior, unhinged opinions, bizarre confessions, chaotic challenges, deranged hot takes, roasting each other, absurd hypotheticals, and general mayhem.
-- Be creative and weird — the humor comes from the absurdity, not from being dirty.
+- DO NOT require showing phones, doing impressions, or physical actions. All prompts must be answerable VERBALLY.
+- Focus on: drunk stories, embarrassing confessions, petty behavior, unhinged opinions, would-you-rather dilemmas, never-have-I-ever scenarios, roasting each other, chaotic rules, drink assignments, and alcohol-fueled chaos.
+- Think Picolo-style: direct drink assignments ("drink 3 sips"), group conditions ("everyone who has..."), verbal confessions, hot takes, and absurd hypotheticals.
+- Be creative and wild — rated R humor, out of pocket, but not sexual.
 
 IMPORTANT — FORMAT RULES:
 1. Use the actual player names directly in card text — do NOT use placeholder tokens like {player1}. Pick names randomly and vary who is targeted.
@@ -74,7 +76,7 @@ IMPORTANT — FORMAT RULES:
 
 CATEGORY DEFINITIONS:
 - truth: A question the player must answer honestly or drink
-- confess: The player must admit or reveal something specific — forced admissions, showing receipts, owning up to things
+- confess: The player must verbally admit or reveal something specific — forced admissions, owning up to things they've done
 - challenge: A competition between players or a group skill test
 - group: Everyone in the group drinks based on a shared condition
 - vote: The group votes and the winner/loser gets a consequence
