@@ -60,11 +60,6 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Safe area insets for iPhone notch/dynamic island */
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
 }
 
 /* App shell — fills viewport, centers content on large screens */
@@ -75,6 +70,11 @@ body {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  /* Safe area insets inside the shell so they don't push content out */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 /* On wider screens, give the app shell a subtle card-like appearance */

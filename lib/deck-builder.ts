@@ -1,4 +1,4 @@
-import { CardTemplate, HydratedCard, Player, Round } from "@/types/game";
+import { CardCategory, CardTemplate, HydratedCard, Player, Round } from "@/types/game";
 import { hydrateCard } from "./card-engine";
 
 /**
@@ -20,9 +20,8 @@ export function buildHybridDeck(
   const rounds: Round[] = [Round.HeatingUp, Round.Crazy, Round.WelcomeToHell];
 
   return rounds.flatMap((round) => {
-    // Static cards for this round — hydrate (substitute player names)
-    const roundTemplates = templates.filter((t) => t.round === round);
-    shuffle(roundTemplates);
+    // Static cards for this round — select random subset then hydrate
+    const roundTemplates = selectSubset(templates.filter((t) => t.round === round));
     const hydratedStatic = roundTemplates.map((t) => hydrateCard(t, players));
 
     // AI cards for this round (already hydrated)
@@ -32,6 +31,27 @@ export function buildHybridDeck(
     const combined = shuffle([...hydratedStatic, ...roundAI]);
     return combined;
   });
+}
+
+/**
+ * Selects a random subset (~65%) of templates per category for a single round,
+ * ensuring at least 1 card per category is always included.
+ */
+function selectSubset(templates: CardTemplate[], ratio = 0.65): CardTemplate[] {
+  const byCategory = new Map<CardCategory, CardTemplate[]>();
+  for (const t of templates) {
+    const arr = byCategory.get(t.category) ?? [];
+    arr.push(t);
+    byCategory.set(t.category, arr);
+  }
+
+  const result: CardTemplate[] = [];
+  for (const [, cards] of byCategory) {
+    const take = Math.max(1, Math.ceil(cards.length * ratio));
+    shuffle(cards);
+    result.push(...cards.slice(0, take));
+  }
+  return result;
 }
 
 /**
@@ -59,7 +79,7 @@ export function buildDeck(
   const rounds: Round[] = [Round.HeatingUp, Round.Crazy, Round.WelcomeToHell];
 
   return rounds.flatMap((round) => {
-    const roundTemplates = templates.filter((t) => t.round === round);
+    const roundTemplates = selectSubset(templates.filter((t) => t.round === round));
     shuffle(roundTemplates);
     return roundTemplates.map((template) => hydrateCard(template, players));
   });

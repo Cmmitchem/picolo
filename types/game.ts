@@ -50,3 +50,13 @@ export interface GameState {
   cardsPerRound: number;
   roundCardCount: number;
 }
+
+export interface CardFeedback {
+  cardId: string;
+  cardText: string;
+  category: CardCategory;
+  round: Round;
+  rating: "up" | "down";
+  comment?: string;
+  timestamp: number;
+}

@@ -1,6 +1,8 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextResponse } from "next/server";
-import { CardCategory, Round } from "@/types/game";
+import fs from "fs";
+import path from "path";
+import { CardCategory, CardFeedback, Round } from "@/types/game";
 
 // ─── Request / Response shapes ───────────────────────────────────────────────
 
@@ -47,6 +49,49 @@ function roundContext(round: Round): string {
   }
 }
 
+// ─── Load player feedback ────────────────────────────────────────────────────
+
+function loadFeedbackSummary(): string {
+  try {
+    const filePath = path.join(process.cwd(), "data", "feedback.json");
+    if (!fs.existsSync(filePath)) return "";
+
+    const all: CardFeedback[] = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    const recent = all.slice(-30);
+    if (recent.length === 0) return "";
+
+    const liked = recent.filter((f) => f.rating === "up");
+    const disliked = recent.filter((f) => f.rating === "down");
+
+    let summary = "\n\nPLAYER FEEDBACK FROM PREVIOUS GAMES:\n";
+
+    if (liked.length > 0) {
+      summary += "Cards players LIKED (generate more like these):\n";
+      for (const f of liked.slice(-10)) {
+        summary += `- [${f.category}] "${f.cardText}"`;
+        if (f.comment) summary += ` (player said: "${f.comment}")`;
+        summary += "\n";
+      }
+    }
+
+    if (disliked.length > 0) {
+      summary += "Cards players DISLIKED (avoid these patterns):\n";
+      for (const f of disliked.slice(-10)) {
+        summary += `- [${f.category}] "${f.cardText}"`;
+        if (f.comment) summary += ` (player said: "${f.comment}")`;
+        summary += "\n";
+      }
+    }
+
+    summary +=
+      "Use this feedback to improve card quality. Generate more content matching liked patterns and avoid disliked patterns.\n";
+
+    return summary;
+  } catch {
+    return "";
+  }
+}
+
 // ─── System prompt ───────────────────────────────────────────────────────────
 
 function buildSystemPrompt(players: string[], round: Round): string {
@@ -82,11 +127,14 @@ CATEGORY DEFINITIONS:
 - vote: The group votes and the winner/loser gets a consequence
 - rule: A new rule is established that persists for a few cards
 
+SESSION VARIETY SEED: ${Math.random().toString(36).slice(2, 8)}
+Be creative and avoid repeating common drinking game tropes. Surprise the players with unique, unexpected prompts they haven't seen before.
+
 OUTPUT FORMAT: Respond with ONLY a valid JSON array. No markdown fences, no commentary. Example:
 [
   {"text": "...", "category": "truth"},
   {"text": "...", "category": "confess"}
-]`;
+]${loadFeedbackSummary()}`;
 }
 
 // ─── Map category string to CardCategory enum ────────────────────────────────

@@ -11,6 +11,7 @@ export type GameAction =
   | { type: "START_GAME_WITH_AI_CARDS"; payload: { aiCards: HydratedCard[] } }
   | { type: "NEXT_CARD" }
   | { type: "REFRESH_DECK" }
+  | { type: "REFRESH_DECK_WITH_AI_CARDS"; payload: { aiCards: HydratedCard[] } }
   | { type: "RESTART_GAME" }
   | { type: "GO_TO_PLAYER_ENTRY" }
   | { type: "SET_PHASE"; payload: { phase: GamePhase } };
@@ -137,6 +138,26 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
       if (state.players.length < 2) return state;
 
       const freshDeck = buildDeck(state.players, cardTemplates);
+      const cardsPerRound = Math.floor(freshDeck.length / 3);
+
+      return {
+        ...state,
+        deck: freshDeck,
+        currentCardIndex: 0,
+        currentRound: Round.HeatingUp,
+        cardsPerRound,
+        roundCardCount: 0,
+      };
+    }
+
+    case "REFRESH_DECK_WITH_AI_CARDS": {
+      if (state.players.length < 2) return state;
+
+      const freshDeck = buildHybridDeck(
+        state.players,
+        cardTemplates,
+        action.payload.aiCards
+      );
       const cardsPerRound = Math.floor(freshDeck.length / 3);
 
       return {

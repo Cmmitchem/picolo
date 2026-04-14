@@ -48,7 +48,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icon-192.svg" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-[#0d0d12] text-[#f5f5f7]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0d0d12] text-[#f5f5f7]`}
       >
         <GameProvider>
           <div className="app-shell bg-bg-dark">
